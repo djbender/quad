@@ -1,7 +1,7 @@
-require 'ascii_table_value_parser/version'
+require 'quad/version'
 require 'csv'
 
-module AsciiTableValueParser
+module Quad
   class CSV
     include Enumerable
 

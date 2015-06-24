@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ascii_table_value_parser/version'
+require 'quad/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ascii_table_value_parser"
-  spec.version       = AsciiTableValueParser::VERSION
+  spec.name          = "quad"
+  spec.version       = Quad::VERSION
   spec.authors       = ["Derek Bender"]
   spec.email         = ["nofeardjb@gmail.com"]
-  spec.summary       = "Parse Ascii Tables Values"
-  spec.description   = "Parse Ascii Tables Values."
-  spec.homepage      = "https://github.com/djbender/ascii_table_value_parser"
+  spec.summary       = "Parse ATVs (ascii table values)"
+  spec.description   = "Parse ATVs (ascii table values)."
+  spec.homepage      = "https://github.com/djbender/quad"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
