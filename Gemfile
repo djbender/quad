@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in atv.gemspec
+group :development do
+  gem 'guard-rspec', '~> 4.5.1'
+  gem 'byebug'
+end
+
 gemspec
