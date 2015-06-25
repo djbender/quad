@@ -8,7 +8,8 @@ module Quad
     SUBSTITUTIONS = {
       'true' => true,
       'false' => false,
-      'null' => nil
+      'null' => nil,
+      '' => nil
     }.freeze
 
     attr_reader :headers, :rows
@@ -25,7 +26,6 @@ module Quad
         next if line =~ /\A\+/
         line.chomp!
         line = split_table_line(line)
-        line = line.reject(&:empty?)
         line = line.map { |token| SUBSTITUTIONS.has_key?(token) ? SUBSTITUTIONS[token] : token }
         yield ::CSV::Row.new(@headers, line)
       end
