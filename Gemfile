@@ -7,6 +7,7 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'coveralls', require: false
 end
 
 gemspec
