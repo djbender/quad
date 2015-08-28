@@ -2,6 +2,7 @@ require 'quad/version'
 require 'csv'
 
 module Quad
+  # :nodoc:
   class CSV
     include Enumerable
 
@@ -26,13 +27,13 @@ module Quad
         next if line =~ /\A\+/
         line.chomp!
         line = split_table_line(line)
-        line = line.map { |token| SUBSTITUTIONS.has_key?(token) ? SUBSTITUTIONS[token] : token }
+        line = substitutions_cleanup(line)
         yield ::CSV::Row.new(@headers, line)
       end
     end
 
     def self.from_string(string)
-      self.new(StringIO.new(string))
+      new(StringIO.new(string))
     end
 
     protected
@@ -41,5 +42,14 @@ module Quad
       line[1..-1].split('|').map(&:strip)
     end
 
+    def substitutions_cleanup(line)
+      line.map do |token|
+        if SUBSTITUTIONS.key?(token)
+          SUBSTITUTIONS[token]
+        else
+          token
+        end
+      end
+    end
   end
 end

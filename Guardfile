@@ -1,5 +1,5 @@
-guard :rspec, cmd: 'time rspec' do
-  require "guard/rspec/dsl"
+guard :rspec, cmd: 'time bin/rspec' do
+  require 'guard/rspec/dsl'
   dsl = Guard::RSpec::Dsl.new(self)
 
   # RSpec files
@@ -11,4 +11,11 @@ guard :rspec, cmd: 'time rspec' do
   # Ruby files
   ruby = dsl.ruby
   dsl.watch_spec_files_for(ruby.lib_files)
+end
+
+guard :rubocop do
+  watch(%r{/.+\.rb$/})
+  watch(%r{bin/.+})
+  watch('Rakefile')
+  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
 end

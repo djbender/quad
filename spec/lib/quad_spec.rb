@@ -1,6 +1,6 @@
 require_relative '../../lib/quad'
 
-describe Quad::CSV do
+RSpec.describe Quad::CSV do
   DATA_AS_TABLE = <<-TEXT
 +-----------+--------------------+--------------+
 | name      | dob                | predictable? |
@@ -43,10 +43,10 @@ describe Quad::CSV do
     end
   end
 
-  describe "#headers" do
+  describe '#headers' do
     it 'returns all the headers' do
       headers = Quad::CSV.new(StringIO.new(DATA_AS_TABLE)).headers
-      expect(headers).to eql %w|name dob predictable?|
+      expect(headers).to eql %w(name dob predictable?)
     end
   end
 
@@ -63,7 +63,7 @@ describe Quad::CSV do
 
     let(:expected) do
       [
-        ['Zoe', nil, 'red'],
+        ['Zoe', nil, 'red']
       ]
     end
 
@@ -88,5 +88,4 @@ describe Quad::CSV do
       end
     end
   end
-
 end
