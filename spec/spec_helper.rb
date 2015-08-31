@@ -1,6 +1,13 @@
-if ENV['TRAVIS'] == 'true'
+require 'simplecov'
+SimpleCov.start
+if ENV['CI'] == 'true'
+  # coveralls.io
   require 'coveralls'
   Coveralls.wear!
+
+  # codecov.io
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
 RSpec.configure do |config|

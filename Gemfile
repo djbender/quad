@@ -7,6 +7,10 @@ end
 
 group :development, :test do
   gem 'byebug'
+end
+
+group :test do
+  gem 'codecov', require: false
   gem 'coveralls', require: false
 end
 
