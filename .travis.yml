@@ -5,3 +5,5 @@ rvm:
 matrix:
   allow_failures:
     - rvm: ruby-head
+env:
+  TRAVIS=true

@@ -1,5 +1,7 @@
-require 'coveralls'
-Coveralls.wear!
+if ENV['TRAVIS'] == 'true'
+  require 'coveralls'
+  Coveralls.wear!
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
