@@ -4,11 +4,6 @@ SimpleCov.start do
 end
 
 if ENV['CI'] == 'true'
-  # coveralls.io
-  require 'coveralls'
-  Coveralls.wear!
-
-  # codecov.io
   require 'codecov'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
