@@ -88,4 +88,10 @@ RSpec.describe Quad::CSV do
       end
     end
   end
+
+  describe '.from_string' do
+    it 'creates an instance from string IO' do
+      expect(Quad::CSV.from_string(String.new)).to be_instance_of Quad::CSV
+    end
+  end
 end

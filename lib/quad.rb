@@ -17,8 +17,10 @@ module Quad
 
     def initialize(io)
       @io = io
-      @io.readline
-      @headers = split_table_line(@io.readline.chomp)
+      if io.length > 0
+        @io.readline
+        @headers = split_table_line(@io.readline.chomp)
+      end
     end
 
     def each
